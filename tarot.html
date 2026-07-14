@@ -314,11 +314,35 @@
 
         .footer-row {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: space-between;
             gap: 24px;
             color: var(--tarot-muted);
             font-size: 0.78rem;
+        }
+
+        .footer-navigation,
+        .footer-group {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .footer-navigation {
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 24px 42px;
+        }
+
+        .footer-group {
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .footer-group-title {
+            color: var(--tarot-ink);
+            font-size: 0.7rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
         }
 
         .footer-links {
@@ -381,6 +405,10 @@
             }
 
             .footer-links {
+                justify-content: flex-start;
+            }
+
+            .footer-navigation {
                 justify-content: flex-start;
             }
         }
@@ -469,9 +497,21 @@
     <footer class="tarot-footer">
         <div class="tarot-shell footer-row">
             <span>© 2026 Bí ẩn Tarot</span>
-            <div class="footer-links">
-                <a href="mailto:tarotwizard7777@gmail.com">tarotwizard7777@gmail.com</a>
-                <a href="https://fb.com/fb.thangpham" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <div class="footer-navigation">
+                <div class="footer-group">
+                    <strong class="footer-group-title" data-i18n="footerContact">Liên hệ</strong>
+                    <div class="footer-links">
+                        <a href="mailto:tarotwizard7777@gmail.com">tarotwizard7777@gmail.com</a>
+                        <a href="https://fb.com/fb.thangpham" target="_blank" rel="noopener noreferrer">Facebook</a>
+                    </div>
+                </div>
+                <div class="footer-group">
+                    <strong class="footer-group-title" data-i18n="footerLegal">Pháp lý</strong>
+                    <div class="footer-links">
+                        <a href="https://pham-tien-thang.github.io/policy/tarot_app/policy_tarot" target="_blank" rel="noopener noreferrer" data-i18n="footerPrivacy">Chính sách quyền riêng tư</a>
+                        <a href="https://pham-tien-thang.github.io/policy/tarot_app/delete_data" target="_blank" rel="noopener noreferrer" data-i18n="footerDeleteAccount">Xóa tài khoản và dữ liệu</a>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
@@ -498,7 +538,11 @@
                 featureTwoTitle: "Giải nghĩa dễ hiểu",
                 featureTwoLead: "Thông điệp được trình bày gần gũi, rõ ràng và không làm mọi thứ trở nên huyền bí quá mức.",
                 featureThreeTitle: "Quyết định vẫn là của bạn",
-                featureThreeLead: "Tarot đưa ra góc nhìn; bạn là người chọn điều phù hợp nhất cho mình."
+                featureThreeLead: "Tarot đưa ra góc nhìn; bạn là người chọn điều phù hợp nhất cho mình.",
+                footerContact: "Liên hệ",
+                footerLegal: "Pháp lý",
+                footerPrivacy: "Chính sách quyền riêng tư",
+                footerDeleteAccount: "Xóa tài khoản và dữ liệu"
             },
             en: {
                 pageTitle: "Tarot Mysteries | Personalized AI readings",
@@ -520,7 +564,11 @@
                 featureTwoTitle: "Clear interpretations",
                 featureTwoLead: "Messages are warm, approachable, and never made more mysterious than they need to be.",
                 featureThreeTitle: "The decision stays yours",
-                featureThreeLead: "Tarot offers another perspective; you choose what feels right for you."
+                featureThreeLead: "Tarot offers another perspective; you choose what feels right for you.",
+                footerContact: "Contact",
+                footerLegal: "Legal",
+                footerPrivacy: "Privacy Policy",
+                footerDeleteAccount: "Delete Account and Data"
             }
         };
 

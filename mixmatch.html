@@ -821,7 +821,7 @@
 
         .footer-top {
             display: grid;
-            grid-template-columns: 1.4fr 0.6fr 0.8fr;
+            grid-template-columns: 1.35fr 0.58fr 0.72fr 0.85fr;
             gap: 48px;
             padding-bottom: 44px;
         }
@@ -908,7 +908,8 @@
             }
 
             .footer-top {
-                grid-template-columns: 1.2fr 0.55fr 0.8fr;
+                grid-template-columns: 1.15fr 0.55fr 0.65fr 0.8fr;
+                gap: 32px;
             }
         }
 
@@ -1001,7 +1002,7 @@
             }
 
             .footer-top {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
             }
 
             .footer-brand {
@@ -1399,6 +1400,15 @@
                         <li><a href="https://www.facebook.com/profile.php?id=61591603363567" target="_blank" rel="noopener noreferrer">Facebook · Mix & Match</a></li>
                     </ul>
                 </div>
+
+                <div class="footer-column">
+                    <h2 data-i18n="footerLegal">Pháp lý</h2>
+                    <ul class="footer-links">
+                        <li><a href="https://pham-tien-thang.github.io/policy/mix_match/policy_mix_match.html" target="_blank" rel="noopener noreferrer" data-i18n="footerPrivacy">Chính sách quyền riêng tư</a></li>
+                        <li><a href="https://pham-tien-thang.github.io/policy/mix_match/terms_mix_match.html" target="_blank" rel="noopener noreferrer" data-i18n="footerTerms">Điều khoản dịch vụ</a></li>
+                        <li><a href="https://pham-tien-thang.github.io/policy/mix_match/delete_data.html" target="_blank" rel="noopener noreferrer" data-i18n="footerDeleteAccount">Xóa tài khoản và dữ liệu</a></li>
+                    </ul>
+                </div>
             </div>
 
             <div class="footer-bottom">
@@ -1471,6 +1481,10 @@
                 footerHow: "Cách hoạt động",
                 footerDownload: "Tải trên Android",
                 footerContact: "Liên hệ",
+                footerLegal: "Pháp lý",
+                footerPrivacy: "Chính sách quyền riêng tư",
+                footerTerms: "Điều khoản dịch vụ",
+                footerDeleteAccount: "Xóa tài khoản và dữ liệu",
                 footerMade: "Thiết kế với sự yêu thích dành cho thời trang và công nghệ."
             },
             en: {
@@ -1534,6 +1548,10 @@
                 footerHow: "How it works",
                 footerDownload: "Get it on Android",
                 footerContact: "Contact",
+                footerLegal: "Legal",
+                footerPrivacy: "Privacy Policy",
+                footerTerms: "Terms of Service",
+                footerDeleteAccount: "Delete Account and Data",
                 footerMade: "Designed with a love for fashion and technology."
             }
         };
