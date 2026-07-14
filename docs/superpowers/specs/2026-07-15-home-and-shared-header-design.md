@@ -2,7 +2,7 @@
 
 ## Scope
 
-Redesign `index.html` as the neutral Mèo cưng home hub and unify the header across `index.html`, `tarot.html`, and `yearly.html`. Product pages keep their own visual identity; the header component changes only in its brand/logo and active-tab state.
+Redesign `index.html` as the neutral Mèo cưng home hub and unify the header across `index.html`, `tarot.html`, and `mixmatch.html`. Product pages keep their own visual identity; the header component changes only in its brand/logo and active-tab state.
 
 ## Shared header
 

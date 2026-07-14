@@ -8,7 +8,7 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const pages = {
   home: readFileSync(join(root, 'index.html'), 'utf8'),
   tarot: readFileSync(join(root, 'tarot.html'), 'utf8'),
-  mix: readFileSync(join(root, 'yearly.html'), 'utf8'),
+  mix: readFileSync(join(root, 'mixmatch.html'), 'utf8'),
 };
 
 test('all product pages share one responsive header shell', () => {
@@ -34,7 +34,7 @@ test('all product pages share one responsive header shell', () => {
     assert.match(html, /class=["']global-language["'][^>]*role=["']group["']/);
     assert.match(html, /href=["']index\.html["']/);
     assert.match(html, /href=["']tarot\.html["']/);
-    assert.match(html, /href=["']yearly\.html["']/);
+    assert.match(html, /href=["']mixmatch\.html["']/);
     assert.match(html, /data-lang=["']vi["']/);
     assert.match(html, /data-lang=["']en["']/);
     assert.match(html, new RegExp(`data-brand=["']${name}["']`));
@@ -45,7 +45,7 @@ test('each shared header marks only its own tab active', () => {
   const activeHrefs = {
     home: 'index.html',
     tarot: 'tarot.html',
-    mix: 'yearly.html',
+    mix: 'mixmatch.html',
   };
 
   for (const [name, html] of Object.entries(pages)) {

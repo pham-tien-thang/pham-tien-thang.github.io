@@ -4,7 +4,7 @@
 
 **Goal:** Build a responsive bilingual Mix & Match landing page connected to the existing top navigation.
 
-**Architecture:** Keep the project dependency-free and static. `yearly.html` owns semantic markup, scoped CSS, translation data, and the small language-controller script; copied app artwork lives under `assets/mix-match/`; a Node test enforces the page contract.
+**Architecture:** Keep the project dependency-free and static. `mixmatch.html` owns semantic markup, scoped CSS, translation data, and the small language-controller script; copied app artwork lives under `assets/mix-match/`; a Node test enforces the page contract.
 
 **Tech Stack:** HTML5, CSS3, vanilla JavaScript, Node.js built-in test runner.
 
@@ -27,7 +27,7 @@
 
 **Interfaces:**
 - Consumes: the user's explicit execution and content requirements.
-- Produces: project-level operating rules and executable expectations for `yearly.html`.
+- Produces: project-level operating rules and executable expectations for `mixmatch.html`.
 
 - [x] **Step 1: Write the failing page contract**
 
@@ -45,7 +45,7 @@ test('Mix & Match page exposes bilingual content and correct contact details', (
 
 Run: `node --test tests/mix-match-page.test.mjs`
 
-Expected: FAIL because `yearly.html` and copied assets do not exist.
+Expected: FAIL because `mixmatch.html` and copied assets do not exist.
 
 - [x] **Step 3: Add the project rule file**
 
@@ -60,7 +60,7 @@ Document that clear implementation requests must be acted on immediately, safe a
 - Create: `assets/mix-match/onboarding4.webp`
 - Create: `assets/mix-match/signinlogo2.webp`
 - Create: `assets/mix-match/branch.webp`
-- Create: `yearly.html`
+- Create: `mixmatch.html`
 
 **Interfaces:**
 - Consumes: `data-i18n` keys and `data-lang` controls asserted by Task 1.
@@ -93,12 +93,12 @@ Expected: all tests pass.
 ### Task 3: Rendered verification
 
 **Files:**
-- Verify: `yearly.html`
+- Verify: `mixmatch.html`
 - Verify: `index.html`
 
 **Interfaces:**
 - Consumes: the completed static page.
-- Produces: evidence that the page works at desktop/mobile widths and both languages, with an honest email notification action until the store listing is live.
+- Produces: evidence that the page works at desktop/mobile widths and both languages, with the Google Play download action and App Store marked as coming soon.
 
 - [x] **Step 1: Serve the repository locally**
 
@@ -110,7 +110,7 @@ Confirm hero, feature sections, footer, no horizontal overflow, and image loadin
 
 - [x] **Step 3: Exercise VI/EN switching and navigation**
 
-Confirm title, copy, pressed states, persisted preference, and that the existing Mix & Match tab opens `yearly.html`.
+Confirm title, copy, pressed states, persisted preference, and that the existing Mix & Match tab opens `mixmatch.html`.
 
 - [x] **Step 4: Run final static checks**
 

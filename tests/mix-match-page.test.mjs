@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { runInNewContext } from 'node:vm';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const pagePath = join(root, 'yearly.html');
+const pagePath = join(root, 'mixmatch.html');
 
 function readRequired(path, label) {
   assert.ok(existsSync(path), `${label} must exist at ${path}`);
@@ -102,11 +102,11 @@ test('existing Mix & Match navigation points to the dedicated page', () => {
   const tarotHtml = readRequired(join(root, 'tarot.html'), 'tarot.html');
   assert.match(
     indexHtml,
-    /href=["']yearly\.html["'][^>]*>Mix &amp; Match|href=["']yearly\.html["'][^>]*>Mix & Match/,
+    /href=["']mixmatch\.html["'][^>]*>Mix &amp; Match|href=["']mixmatch\.html["'][^>]*>Mix & Match/,
   );
   assert.match(
     tarotHtml,
-    /href=["']yearly\.html["'][^>]*>Mix &amp; Match|href=["']yearly\.html["'][^>]*>Mix & Match/,
+    /href=["']mixmatch\.html["'][^>]*>Mix &amp; Match|href=["']mixmatch\.html["'][^>]*>Mix & Match/,
   );
 });
 
@@ -213,8 +213,11 @@ test('language controller updates content, metadata, accessibility, and storage'
   assert.doesNotThrow(() => harness.setLanguage('vi'));
 });
 
-test('Mix & Match page uses the requested brand and contact details', () => {
+test('Mix & Match page uses the requested brand, contact, and Google Play details', () => {
   const html = readRequired(pagePath, 'Mix & Match page');
+  const googlePlayUrl =
+    'https://play.google.com/store/apps/details?id=com.Aurevon.mix_match';
+
   assert.match(html, /Mèo cưng/);
   assert.doesNotMatch(html, /Mèo Cưng\s+Labs/i);
   assert.match(html, /\.footer-brand img\s*\{[^}]*height:\s*auto;/s);
@@ -225,11 +228,16 @@ test('Mix & Match page uses the requested brand and contact details', () => {
   );
   assert.match(html, />Facebook · Mix & Match<\/a>/);
   assert.doesNotMatch(html, />Facebook · Mèo cưng<\/a>/);
-  assert.match(html, /mailto:meocungptt@gmail\.com\?subject=Mix%20%26%20Match%20launch/);
-  assert.doesNotMatch(html, /play\.google\.com\/store\/apps\/details/);
+  assert.equal(html.split(googlePlayUrl).length - 1, 2);
   assert.doesNotMatch(
     html,
-    /Tải Mix & Match|Tải ứng dụng|Download Mix & Match|>Download<|footerDownload:\s*["']Download["']/,
+    /mailto:meocungptt@gmail\.com\?subject=Mix%20%26%20Match%20launch/,
+  );
+  assert.match(html, /downloadButton:\s*"Tải trên Google Play"/);
+  assert.match(html, /downloadButton:\s*"Get it on Google Play"/);
+  assert.doesNotMatch(
+    html,
+    /Sắp ra mắt · Nhận thông báo|Coming soon · Get notified|Mix & Match sắp ra mắt|Mix & Match is coming soon|Nhận tin ra mắt|Launch updates/,
   );
 });
 
