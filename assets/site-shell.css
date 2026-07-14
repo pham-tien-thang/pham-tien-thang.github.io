@@ -1,0 +1,222 @@
+:root {
+    --shell-bg: #fbfaf8;
+    --shell-surface: #ffffff;
+    --shell-ink: #302d2a;
+    --shell-muted: #746f69;
+    --shell-line: #e9e4df;
+    --shell-active: #403b37;
+    --shell-accent: #7b6f85;
+}
+
+.global-header,
+.global-header *,
+.global-header *::before,
+.global-header *::after {
+    box-sizing: border-box;
+}
+
+.global-header {
+    position: sticky;
+    z-index: 200;
+    top: 0;
+    border-bottom: 1px solid var(--shell-line);
+    background: rgba(251, 250, 248, 0.9);
+    box-shadow: 0 10px 36px rgba(53, 48, 44, 0.04);
+    font-family: "Manrope", sans-serif;
+    backdrop-filter: blur(18px);
+}
+
+.global-shell {
+    width: min(calc(100% - 40px), 1180px);
+    margin-inline: auto;
+}
+
+.global-nav {
+    min-height: 78px;
+    display: grid;
+    grid-template-columns: minmax(170px, 1fr) auto minmax(170px, 1fr);
+    align-items: center;
+    gap: 28px;
+}
+
+.global-header a {
+    text-decoration: none;
+}
+
+.global-header button {
+    font: inherit;
+}
+
+.global-brand {
+    min-width: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-self: start;
+    gap: 10px;
+    color: var(--shell-ink);
+}
+
+.global-brand-image {
+    width: 180px;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.global-brand-wordmark {
+    font-family: "Newsreader", serif;
+    font-size: 1.45rem;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: 1;
+}
+
+.global-brand-icon {
+    width: 30px;
+    height: 30px;
+    display: grid;
+    flex: 0 0 auto;
+    place-items: center;
+    border: 1px solid var(--shell-line);
+    border-radius: 50%;
+    background: var(--shell-surface);
+    color: var(--shell-accent);
+    font-family: "Newsreader", serif;
+    font-size: 0.92rem;
+}
+
+.global-tabs {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    padding: 4px;
+    border: 1px solid var(--shell-line);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.76);
+    box-shadow: 0 8px 24px rgba(53, 48, 44, 0.04);
+}
+
+.global-tab {
+    min-height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 15px;
+    border-radius: 999px;
+    color: var(--shell-muted);
+    font-size: 0.78rem;
+    font-weight: 650;
+    line-height: 1.2;
+    white-space: nowrap;
+    transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.global-tab:hover {
+    background: #f2efeb;
+    color: var(--shell-ink);
+}
+
+.global-tab[aria-current="page"] {
+    background: var(--shell-active);
+    box-shadow: 0 7px 16px rgba(64, 59, 55, 0.18);
+    color: #ffffff;
+}
+
+.global-language {
+    display: inline-flex;
+    justify-self: end;
+    padding: 4px;
+    border: 1px solid var(--shell-line);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.78);
+}
+
+.global-language-button {
+    min-width: 40px;
+    min-height: 32px;
+    padding: 5px 9px;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--shell-muted);
+    cursor: pointer;
+    font-size: 0.7rem;
+    font-weight: 750;
+    letter-spacing: 0.08em;
+    transition: background 180ms ease, color 180ms ease, box-shadow 180ms ease;
+}
+
+.global-language-button[aria-pressed="true"] {
+    background: var(--shell-active);
+    box-shadow: 0 6px 14px rgba(64, 59, 55, 0.18);
+    color: #ffffff;
+}
+
+.global-header :focus-visible {
+    outline: 3px solid rgba(64, 59, 55, 0.72);
+    outline-offset: 3px;
+}
+
+@media (max-width: 780px) {
+    .global-nav {
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 10px 16px;
+        padding-block: 12px;
+    }
+
+    .global-tabs {
+        width: 100%;
+        grid-column: 1 / -1;
+        grid-row: 2;
+        justify-content: flex-start;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+
+    .global-tabs::-webkit-scrollbar {
+        display: none;
+    }
+
+    .global-tab {
+        flex: 1 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .global-shell {
+        width: min(calc(100% - 28px), 1180px);
+    }
+
+    .global-brand-image {
+        width: 142px;
+    }
+
+    .global-brand-wordmark {
+        font-size: 1.25rem;
+    }
+
+    .global-brand-icon {
+        width: 27px;
+        height: 27px;
+    }
+
+    .global-tab {
+        min-height: 34px;
+        padding-inline: 12px;
+        font-size: 0.74rem;
+    }
+
+    .global-language-button {
+        min-width: 36px;
+        min-height: 30px;
+        padding-inline: 7px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .global-tab,
+    .global-language-button {
+        transition: none;
+    }
+}

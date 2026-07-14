@@ -3,62 +3,567 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Bí ẩn Tarot | Bói tarot: Tình yêu, sự nghiệp</title>
+    <meta name="theme-color" content="#171518" />
+    <meta name="description" content="Bí ẩn Tarot — trải bài cá nhân hóa bằng AI cho tình yêu, công việc và những lựa chọn của bạn." />
+    <title>Bí ẩn Tarot | Trải bài cá nhân hóa bằng AI</title>
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&amp;display=swap" rel="stylesheet" />
+    <link href="assets/site-shell.css" rel="stylesheet" />
 
     <style>
-        body { font-family: 'Cinzel', serif; }
+        :root {
+            --tarot-bg: #171518;
+            --tarot-surface: #211e22;
+            --tarot-surface-high: #2b272d;
+            --tarot-ink: #f6f0ec;
+            --tarot-muted: #bdb3b8;
+            --tarot-line: rgba(255, 255, 255, 0.12);
+            --tarot-accent: #c9a8d0;
+            --tarot-gold: #d7bd91;
+            --tarot-width: 1180px;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            overflow-x: clip;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            overflow-x: clip;
+            background: var(--tarot-bg);
+            color: var(--tarot-ink);
+            font-family: "Manrope", sans-serif;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body::before {
+            position: fixed;
+            z-index: -2;
+            inset: 0;
+            background:
+                radial-gradient(circle at 82% 14%, rgba(130, 88, 143, 0.25), transparent 30%),
+                radial-gradient(circle at 12% 72%, rgba(111, 82, 97, 0.18), transparent 26%),
+                linear-gradient(160deg, #1b181c 0%, #121113 72%);
+            content: "";
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        :focus-visible {
+            outline: 3px solid var(--tarot-accent);
+            outline-offset: 4px;
+        }
+
+        .skip-link {
+            position: fixed;
+            z-index: 1000;
+            top: 10px;
+            left: 10px;
+            padding: 10px 16px;
+            border-radius: 999px;
+            background: #fff;
+            color: #171518;
+            transform: translateY(-150%);
+            transition: transform 180ms ease;
+        }
+
+        .skip-link:focus {
+            transform: translateY(0);
+        }
+
+        .tarot-shell {
+            width: min(calc(100% - 40px), var(--tarot-width));
+            margin-inline: auto;
+        }
+
+        .tarot-hero {
+            min-height: calc(100vh - 78px);
+            display: grid;
+            grid-template-columns: minmax(0, 0.95fr) minmax(420px, 1.05fr);
+            align-items: center;
+            gap: 80px;
+            padding-block: 82px 92px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0 0 20px;
+            color: var(--tarot-accent);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.17em;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::before {
+            width: 28px;
+            height: 1px;
+            background: currentColor;
+            content: "";
+        }
+
+        h1,
+        h2,
+        p {
+            margin-top: 0;
+        }
+
+        h1,
+        h2 {
+            font-family: "Newsreader", serif;
+            font-weight: 500;
+            letter-spacing: -0.04em;
+        }
+
+        h1 {
+            max-width: 690px;
+            margin-bottom: 24px;
+            font-size: clamp(4rem, 7vw, 6.5rem);
+            line-height: 0.91;
+        }
+
+        .hero-lead {
+            max-width: 600px;
+            margin-bottom: 32px;
+            color: var(--tarot-muted);
+            font-size: clamp(1rem, 1.5vw, 1.12rem);
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .tarot-button {
+            min-height: 52px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            padding: 12px 21px;
+            border: 1px solid transparent;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            transition: transform 180ms ease, background 180ms ease;
+        }
+
+        .tarot-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .tarot-button-primary {
+            background: #f3eaf4;
+            color: #2a242b;
+        }
+
+        .tarot-button-secondary {
+            border-color: var(--tarot-line);
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--tarot-ink);
+        }
+
+        .tarot-stage {
+            position: relative;
+            min-height: 570px;
+            display: grid;
+            place-items: center;
+            isolation: isolate;
+        }
+
+        .tarot-stage::before {
+            position: absolute;
+            z-index: -1;
+            width: 470px;
+            max-width: 92%;
+            aspect-ratio: 1;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            box-shadow: 0 0 0 52px rgba(255, 255, 255, 0.018), 0 0 0 104px rgba(255, 255, 255, 0.012);
+            content: "";
+        }
+
+        .oracle-card {
+            position: relative;
+            width: min(320px, 68vw);
+            aspect-ratio: 0.62;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+            border: 1px solid rgba(215, 189, 145, 0.46);
+            border-radius: 30px;
+            background:
+                radial-gradient(circle at 50% 36%, rgba(201, 168, 208, 0.3), transparent 25%),
+                linear-gradient(160deg, #3c333f, #1d191e);
+            box-shadow: 0 34px 80px rgba(0, 0, 0, 0.38);
+            transform: rotate(4deg);
+        }
+
+        .oracle-card::before,
+        .oracle-card::after {
+            position: absolute;
+            border: 1px solid rgba(215, 189, 145, 0.28);
+            border-radius: 50%;
+            content: "";
+        }
+
+        .oracle-card::before {
+            width: 210px;
+            aspect-ratio: 1;
+        }
+
+        .oracle-card::after {
+            width: 142px;
+            aspect-ratio: 1;
+        }
+
+        .oracle-symbol {
+            position: relative;
+            z-index: 1;
+            color: var(--tarot-gold);
+            font-family: "Newsreader", serif;
+            font-size: 5.8rem;
+            line-height: 1;
+        }
+
+        .floating-reading {
+            position: absolute;
+            right: 0;
+            bottom: 70px;
+            width: 210px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 24px;
+            background: rgba(42, 37, 43, 0.76);
+            box-shadow: 0 22px 50px rgba(0, 0, 0, 0.24);
+            backdrop-filter: blur(16px);
+        }
+
+        .floating-reading span {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--tarot-accent);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+        }
+
+        .floating-reading strong {
+            font-family: "Newsreader", serif;
+            font-size: 1.35rem;
+            font-weight: 500;
+            line-height: 1.15;
+        }
+
+        .tarot-highlights {
+            padding-block: 74px;
+            border-block: 1px solid var(--tarot-line);
+            background: rgba(255, 255, 255, 0.025);
+        }
+
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .highlight-card {
+            padding: 26px;
+            border: 1px solid var(--tarot-line);
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.035);
+        }
+
+        .highlight-card span {
+            color: var(--tarot-gold);
+            font-family: "Newsreader", serif;
+            font-size: 1.8rem;
+        }
+
+        .highlight-card h2 {
+            margin: 16px 0 8px;
+            font-size: 1.55rem;
+        }
+
+        .highlight-card p {
+            margin-bottom: 0;
+            color: var(--tarot-muted);
+            font-size: 0.84rem;
+        }
+
+        .tarot-footer {
+            padding-block: 42px;
+        }
+
+        .footer-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            color: var(--tarot-muted);
+            font-size: 0.78rem;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 12px 22px;
+        }
+
+        .footer-links a:hover {
+            color: var(--tarot-ink);
+        }
+
+        @media (max-width: 900px) {
+            .tarot-hero {
+                grid-template-columns: 1fr;
+                gap: 36px;
+            }
+
+            .hero-copy {
+                max-width: 720px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .tarot-shell {
+                width: min(calc(100% - 28px), var(--tarot-width));
+            }
+
+            .tarot-hero {
+                min-height: auto;
+                padding-block: 64px 72px;
+            }
+
+            h1 {
+                font-size: clamp(3.4rem, 17vw, 4.8rem);
+            }
+
+            .hero-actions .tarot-button {
+                width: 100%;
+            }
+
+            .tarot-stage {
+                min-height: 500px;
+            }
+
+            .floating-reading {
+                right: 4px;
+                bottom: 36px;
+                width: 185px;
+            }
+
+            .highlight-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-row {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .footer-links {
+                justify-content: flex-start;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.01ms !important;
+            }
+        }
     </style>
 </head>
 
-<body class="bg-black text-white">
+<body>
+    <a class="skip-link" href="#main-content" data-i18n="skipLink">Bỏ qua điều hướng</a>
 
-<div class="fixed inset-0 -z-10 bg-gradient-to-br from-purple-900 via-black to-indigo-900 opacity-90"></div>
-
-<nav class="border-b border-white/20">
-    <div class="max-w-5xl mx-auto px-4 flex flex-wrap gap-4 py-3">
-        <a href="index.html" class="text-white/80 hover:text-white transition">Home</a>
-        <a href="tarot.html" class="text-purple-300 font-semibold border-b-2 border-purple-400">Bí ẩn Tarot</a>
-        <a href="yearly.html" class="text-white/80 hover:text-white transition">Bói 12 cung hoàng đạo </a>
-
-    </div>
-</nav>
-
-<section class="min-h-screen flex items-center justify-center px-6">
-    <div class="max-w-3xl text-center space-y-8">
-
-        <h1 class="text-4xl md:text-5xl font-semibold tracking-wide">
-            Bói tarot: Tình yêu, sự nghiệp
-        </h1>
-
-        <p class="text-gray-300 text-lg">
-            Trải bài cá nhân hóa bằng AI. Giải nghĩa chi tiết và lời khuyên thực tế cho từng câu hỏi.
-        </p>
-
-        <div class="flex justify-center gap-4 flex-wrap">
-            <a href="https://play.google.com/store/apps/details?id=com.phamtienthang.tarot_app"
-               target="_blank"
-               class="px-6 py-3 rounded-xl bg-purple-600 hover:bg-purple-700 transition">
-                Tải trên Google Play
+    <header class="global-header">
+        <div class="global-shell global-nav">
+            <a class="global-brand" data-brand="tarot" href="tarot.html" aria-label="Bí ẩn Tarot">
+                <span class="global-brand-icon" aria-hidden="true">✦</span>
+                <span class="global-brand-wordmark">Bí ẩn Tarot</span>
             </a>
 
-            <a href="mailto:tarotwizard7777@gmail.com"
-               class="px-6 py-3 rounded-xl border border-white/30 hover:bg-white/10 transition">
-                Liên hệ
-            </a>
+            <nav class="global-tabs" data-i18n-aria="navAria" aria-label="Điều hướng chính">
+                <a class="global-tab" href="index.html" data-i18n="navHome">Trang chủ</a>
+                <a class="global-tab" aria-current="page" href="tarot.html" data-i18n="navTarot">Bí ẩn Tarot</a>
+                <a class="global-tab" href="yearly.html">Mix & Match</a>
+            </nav>
+
+            <div class="global-language" role="group" data-i18n-aria="languageAria" aria-label="Chọn ngôn ngữ">
+                <button class="global-language-button" type="button" data-lang="vi" aria-pressed="true">VI</button>
+                <button class="global-language-button" type="button" data-lang="en" aria-pressed="false">EN</button>
+            </div>
         </div>
+    </header>
 
-        <div class="text-gray-400 text-sm pt-8 space-y-2">
-            <p>© 2026 Tarot App</p>
-            <p class="pt-2">Phạm Tiến Thắng</p>
-            <p><a href="https://fb.com/fb.thangpham" target="_blank" rel="noopener" class="hover:text-white transition">fb.com/fb.thangpham</a></p>
-            <p><a href="mailto:tarotwizard@gmail.com" class="hover:text-white transition">tarotwizard@gmail.com</a></p>
+    <main id="main-content">
+        <section class="tarot-shell tarot-hero" aria-labelledby="tarot-title">
+            <div class="hero-copy">
+                <p class="eyebrow" data-i18n="heroEyebrow">Trực giác · Chiêm nghiệm · Gợi mở</p>
+                <h1 id="tarot-title" data-i18n="heroTitle">Một khoảng lặng để nghe điều bạn thật sự nghĩ.</h1>
+                <p class="hero-lead" data-i18n="heroLead">Trải bài cá nhân hóa bằng AI, giải nghĩa chi tiết và gợi ý thực tế cho tình yêu, công việc và những lựa chọn đang khiến bạn băn khoăn.</p>
+                <div class="hero-actions">
+                    <a class="tarot-button tarot-button-primary" href="https://play.google.com/store/apps/details?id=com.phamtienthang.tarot_app" target="_blank" rel="noopener noreferrer" data-i18n="downloadButton">Tải trên Google Play</a>
+                    <a class="tarot-button tarot-button-secondary" href="mailto:tarotwizard7777@gmail.com" data-i18n="contactButton">Liên hệ</a>
+                </div>
+            </div>
+
+            <div class="tarot-stage" aria-hidden="true">
+                <div class="oracle-card">
+                    <span class="oracle-symbol">☾</span>
+                </div>
+                <div class="floating-reading">
+                    <span data-i18n="readingLabel">Thông điệp hôm nay</span>
+                    <strong data-i18n="readingValue">Tin vào nhịp điệu của riêng bạn.</strong>
+                </div>
+            </div>
+        </section>
+
+        <section class="tarot-highlights" aria-label="Điểm nổi bật">
+            <div class="tarot-shell highlight-grid">
+                <article class="highlight-card">
+                    <span>01</span>
+                    <h2 data-i18n="featureOneTitle">Câu hỏi của riêng bạn</h2>
+                    <p data-i18n="featureOneLead">Mỗi trải bài bắt đầu từ điều bạn đang thật sự muốn hiểu rõ.</p>
+                </article>
+                <article class="highlight-card">
+                    <span>02</span>
+                    <h2 data-i18n="featureTwoTitle">Giải nghĩa dễ hiểu</h2>
+                    <p data-i18n="featureTwoLead">Thông điệp được trình bày gần gũi, rõ ràng và không làm mọi thứ trở nên huyền bí quá mức.</p>
+                </article>
+                <article class="highlight-card">
+                    <span>03</span>
+                    <h2 data-i18n="featureThreeTitle">Quyết định vẫn là của bạn</h2>
+                    <p data-i18n="featureThreeLead">Tarot đưa ra góc nhìn; bạn là người chọn điều phù hợp nhất cho mình.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="tarot-footer">
+        <div class="tarot-shell footer-row">
+            <span>© 2026 Bí ẩn Tarot</span>
+            <div class="footer-links">
+                <a href="mailto:tarotwizard7777@gmail.com">tarotwizard7777@gmail.com</a>
+                <a href="https://fb.com/fb.thangpham" target="_blank" rel="noopener noreferrer">Facebook</a>
+            </div>
         </div>
+    </footer>
 
-    </div>
-</section>
+    <script>
+        const translations = {
+            vi: {
+                pageTitle: "Bí ẩn Tarot | Trải bài cá nhân hóa bằng AI",
+                pageDescription: "Bí ẩn Tarot — trải bài cá nhân hóa bằng AI cho tình yêu, công việc và những lựa chọn của bạn.",
+                skipLink: "Bỏ qua điều hướng",
+                navAria: "Điều hướng chính",
+                languageAria: "Chọn ngôn ngữ",
+                navHome: "Trang chủ",
+                navTarot: "Bí ẩn Tarot",
+                heroEyebrow: "Trực giác · Chiêm nghiệm · Gợi mở",
+                heroTitle: "Một khoảng lặng để nghe điều bạn thật sự nghĩ.",
+                heroLead: "Trải bài cá nhân hóa bằng AI, giải nghĩa chi tiết và gợi ý thực tế cho tình yêu, công việc và những lựa chọn đang khiến bạn băn khoăn.",
+                downloadButton: "Tải trên Google Play",
+                contactButton: "Liên hệ",
+                readingLabel: "Thông điệp hôm nay",
+                readingValue: "Tin vào nhịp điệu của riêng bạn.",
+                featureOneTitle: "Câu hỏi của riêng bạn",
+                featureOneLead: "Mỗi trải bài bắt đầu từ điều bạn đang thật sự muốn hiểu rõ.",
+                featureTwoTitle: "Giải nghĩa dễ hiểu",
+                featureTwoLead: "Thông điệp được trình bày gần gũi, rõ ràng và không làm mọi thứ trở nên huyền bí quá mức.",
+                featureThreeTitle: "Quyết định vẫn là của bạn",
+                featureThreeLead: "Tarot đưa ra góc nhìn; bạn là người chọn điều phù hợp nhất cho mình."
+            },
+            en: {
+                pageTitle: "Tarot Mysteries | Personalized AI readings",
+                pageDescription: "Tarot Mysteries — personalized AI readings for love, work, and the choices in front of you.",
+                skipLink: "Skip navigation",
+                navAria: "Primary navigation",
+                languageAria: "Choose language",
+                navHome: "Home",
+                navTarot: "Tarot Mysteries",
+                heroEyebrow: "Intuition · Reflection · Perspective",
+                heroTitle: "A quiet space to hear what you truly think.",
+                heroLead: "Personalized AI card readings with detailed interpretations and practical guidance for love, work, and the choices that have been sitting on your mind.",
+                downloadButton: "Get it on Google Play",
+                contactButton: "Contact",
+                readingLabel: "Today's message",
+                readingValue: "Trust the rhythm that feels like yours.",
+                featureOneTitle: "Your own question",
+                featureOneLead: "Every reading begins with what you genuinely want to understand.",
+                featureTwoTitle: "Clear interpretations",
+                featureTwoLead: "Messages are warm, approachable, and never made more mysterious than they need to be.",
+                featureThreeTitle: "The decision stays yours",
+                featureThreeLead: "Tarot offers another perspective; you choose what feels right for you."
+            }
+        };
 
+        function setLanguage(language) {
+            const nextLanguage = translations[language] ? language : "vi";
+            const copy = translations[nextLanguage];
+
+            document.documentElement.lang = nextLanguage;
+            document.title = copy.pageTitle;
+            document.querySelector('meta[name="description"]').setAttribute("content", copy.pageDescription);
+
+            document.querySelectorAll("[data-i18n]").forEach((element) => {
+                const value = copy[element.dataset.i18n];
+                if (value) element.textContent = value;
+            });
+
+            document.querySelectorAll("[data-i18n-aria]").forEach((element) => {
+                const value = copy[element.dataset.i18nAria];
+                if (value) element.setAttribute("aria-label", value);
+            });
+
+            document.querySelectorAll("[data-lang]").forEach((button) => {
+                button.setAttribute("aria-pressed", String(button.dataset.lang === nextLanguage));
+            });
+
+            try {
+                localStorage.setItem("site-language", nextLanguage);
+            } catch (error) {
+                // The language still works when storage is unavailable.
+            }
+        }
+
+        document.querySelectorAll("[data-lang]").forEach((button) => {
+            button.addEventListener("click", () => setLanguage(button.dataset.lang));
+        });
+
+        let initialLanguage = "vi";
+        try {
+            initialLanguage = localStorage.getItem("site-language") || "vi";
+        } catch (error) {
+            initialLanguage = "vi";
+        }
+        setLanguage(initialLanguage);
+    </script>
 </body>
 </html>
