@@ -135,11 +135,14 @@ test('hero and launch actions use the refined product presentation', () => {
   assert.doesNotMatch(html, /Outfit đúng chất bạn\./);
   assert.doesNotMatch(html, /stylist-card|stylistCard|AI đang phối đồ/);
   assert.equal(
-    html.match(/class=["']button button-store["'] type=["']button["'] disabled/g)
+    html.match(
+      /class=["']button button-store["'] href=["']https:\/\/apps\.apple\.com\/vn\/app\/mix-match-ph%E1%BB%91i-%C4%91%E1%BB%93-th%E1%BB%AD-%C4%91%E1%BB%93\/id6795383393\?l=vi["']/g,
+    )
       ?.length,
     2,
   );
-  assert.match(html, /appStoreButton:\s*["']Coming soon on App Store["']/);
+  assert.doesNotMatch(html, /class=["']button button-store["'][^>]*disabled/);
+  assert.match(html, /appStoreButton:\s*["']Get it on App Store["']/);
 });
 
 test('three-step section follows the soft Mix & Match theme', () => {
