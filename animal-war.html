@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Game chiến lược bản đồ thế giới. Dẫn dắt quân đoàn động vật, phát triển lãnh thổ và chọn giữa liên minh, thương mại hay chiến tranh." />
+    <title>Animal War: World Conquest I | Mèo cưng</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=Newsreader:wght@400;600&amp;display=swap" rel="stylesheet" />
+    <link href="assets/site-shell.css" rel="stylesheet" />
+    <link href="assets/game-pages.css" rel="stylesheet" />
+    <script src="assets/game-pages.js" defer></script>
+</head>
+
+<body class="game-page" data-game="animal-war">
+    <a class="game-skip" href="#main-content" data-i18n="skipLink">Bỏ qua điều hướng</a>
+
+    <header class="global-header">
+        <div class="global-shell global-nav">
+            <a class="global-brand" href="index.html" aria-label="Mèo cưng">
+                <span class="global-brand-icon" aria-hidden="true">⌁</span>
+                <span class="global-brand-wordmark">Mèo cưng</span>
+            </a>
+
+            <nav class="global-tabs" data-i18n-aria="navAria" aria-label="Điều hướng chính">
+                <a class="global-tab" href="index.html" data-i18n="navHome">Trang chủ</a>
+                <a class="global-tab" href="tarot.html" data-i18n="navTarot">Bí ẩn Tarot</a>
+                <a class="global-tab" href="mixmatch.html">Mix &amp; Match</a>
+                <a class="global-tab" href="animal-war.html" aria-current="page">Animal War</a>
+                <a class="global-tab" href="age-of-dynasties.html">Age of Dynasties</a>
+            </nav>
+
+            <div class="global-language" role="group" data-i18n-aria="languageAria" aria-label="Chọn ngôn ngữ">
+                <button class="global-language-button" type="button" data-lang="vi" aria-pressed="true">VI</button>
+                <button class="global-language-button" type="button" data-lang="en" aria-pressed="false">EN</button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="game-hero" aria-labelledby="game-title">
+            <div class="global-shell game-hero-grid">
+                <div class="game-hero-copy">
+                    <p class="game-eyebrow" data-i18n="heroEyebrow">Chiến lược chinh phục thế giới</p>
+                    <h1 id="game-title">Animal War<span>World Conquest I</span></h1>
+                    <p class="game-lead" data-i18n="heroLead">Chọn một lãnh thổ trên bản đồ thế giới, xây dựng quân đoàn động vật và quyết định khi nào nên bắt tay, khi nào nên xuất quân.</p>
+                    <div class="game-actions">
+                        <a class="game-button" href="#gameplay">
+                            <span data-i18n="heroAction">Khám phá lối chơi</span>
+                            <span aria-hidden="true">↓</span>
+                        </a>
+                        <span class="game-status" data-i18n="heroStatus">Dự án đang phát triển</span>
+                    </div>
+                </div>
+
+                <figure class="game-cover">
+                    <img src="assets/games/animal-war.jpg" alt="Sư tử, đại bàng, cá sấu và gấu bao quanh quả địa cầu có cờ các phe" data-i18n-alt="heroAlt" width="800" height="800" fetchpriority="high" />
+                    <figcaption data-i18n="artCaption">Tranh minh họa của game</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section class="global-shell game-features" id="gameplay" aria-labelledby="gameplay-title">
+            <p class="game-eyebrow" data-i18n="gameplayEyebrow">Lối chơi</p>
+            <h2 id="gameplay-title" data-i18n="gameplayTitle">Lãnh thổ của bạn, chiến lược của bạn.</h2>
+            <div class="game-feature-grid">
+                <article class="game-feature">
+                    <span class="game-feature-number" aria-hidden="true">01</span>
+                    <h3 data-i18n="featureOneTitle">Xây dựng thế lực</h3>
+                    <p data-i18n="featureOneLead">Đầu tư vào kinh tế, sinh trưởng và nghiên cứu để nuôi quân và củng cố căn cứ. Mỗi vùng đất mở ra những lựa chọn phát triển khác nhau.</p>
+                </article>
+                <article class="game-feature">
+                    <span class="game-feature-number" aria-hidden="true">02</span>
+                    <h3 data-i18n="featureTwoTitle">Chỉ huy quân đoàn động vật</h3>
+                    <p data-i18n="featureTwoLead">Tuyển các loài vào tuyến trước và tuyến sau. Cân nhắc lớp quân, nguyên tố và khắc chế trước khi hành quân hoặc giữ đất.</p>
+                </article>
+                <article class="game-feature">
+                    <span class="game-feature-number" aria-hidden="true">03</span>
+                    <h3 data-i18n="featureThreeTitle">Chọn bạn và chọn trận</h3>
+                    <p data-i18n="featureThreeLead">Mở giao thương, tìm đồng minh hoặc tuyên chiến. Khi giành thắng lợi, quyết định cách kiểm soát vùng đất mới.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="game-footer">
+        <div class="global-shell game-footer-row">
+            <span>© 2026 Mèo cưng</span>
+            <nav data-i18n-aria="footerAria" aria-label="Liên kết cuối trang">
+                <a href="index.html#products" data-i18n="homeAction">Tất cả sản phẩm</a>
+                <a href="age-of-dynasties.html">
+                    <span data-i18n="otherAction">Khám phá Age of Dynasties</span>
+                    <span aria-hidden="true">→</span>
+                </a>
+            </nav>
+        </div>
+    </footer>
+</body>
+
+</html>

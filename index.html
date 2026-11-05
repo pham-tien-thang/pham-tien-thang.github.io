@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#f7f5f2" />
-    <meta name="description" content="Mèo cưng — hai trải nghiệm nhỏ dành cho trực giác, phong cách và khoảng riêng của bạn." />
+    <meta name="description" content="Khám phá các ứng dụng và game của Mèo cưng: Bí ẩn Tarot, Mix &amp; Match, Animal War và Age of Dynasties." />
     <title>Mèo cưng | Những trải nghiệm nhỏ dành cho bạn</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -314,6 +314,7 @@
 
         .products-section {
             padding-block: 118px;
+            scroll-margin-top: 144px;
             border-block: 1px solid var(--home-line);
             background: rgba(255, 253, 250, 0.56);
         }
@@ -363,6 +364,16 @@
         .mix-product {
             border: 1px solid rgba(117, 72, 167, 0.1);
             background: linear-gradient(145deg, #fffafc 0%, #f3eafa 100%);
+        }
+
+        .animal-product {
+            background: linear-gradient(145deg, #21483f, #132c28);
+            color: #f8f3e3;
+        }
+
+        .dynasties-product {
+            background: linear-gradient(145deg, #563728, #322017);
+            color: #fff1dc;
         }
 
         .product-topline {
@@ -434,6 +445,29 @@
             object-position: center 34%;
         }
 
+        .game-visual {
+            display: grid;
+            place-items: center;
+            padding: 16px;
+            background: radial-gradient(ellipse, var(--cover-glow), rgba(12, 10, 8, 0.3) 78%);
+        }
+
+        .animal-product .game-visual {
+            --cover-glow: #507265;
+        }
+
+        .dynasties-product .game-visual {
+            --cover-glow: #896044;
+        }
+
+        .game-visual img {
+            display: block;
+            width: min(100%, 252px);
+            height: auto;
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
         .product-copy {
             display: flex;
             flex: 1;
@@ -479,7 +513,9 @@
             margin-top: auto;
         }
 
-        .tarot-product .home-button {
+        .tarot-product .home-button,
+        .animal-product .home-button,
+        .dynasties-product .home-button {
             border-color: rgba(255, 255, 255, 0.18);
             background: rgba(255, 255, 255, 0.1);
             color: #fff;
@@ -699,6 +735,8 @@
                 <a class="global-tab" aria-current="page" href="index.html" data-i18n="navHome">Trang chủ</a>
                 <a class="global-tab" href="tarot.html" data-i18n="navTarot">Bí ẩn Tarot</a>
                 <a class="global-tab" href="mixmatch.html">Mix & Match</a>
+                <a class="global-tab" href="animal-war.html">Animal War</a>
+                <a class="global-tab" href="age-of-dynasties.html">Age of Dynasties</a>
             </nav>
 
             <div class="global-language" role="group" data-i18n-aria="languageAria" aria-label="Chọn ngôn ngữ">
@@ -713,7 +751,7 @@
             <div class="hero-copy">
                 <p class="eyebrow" data-i18n="heroEyebrow">Mèo cưng studio</p>
                 <h1 id="home-title" data-i18n="heroTitle">Những trải nghiệm nhỏ, dành cho khoảng riêng của bạn.</h1>
-                <p class="hero-lead" data-i18n="heroLead">Một nơi nhẹ nhàng để lắng nghe trực giác, tìm cảm hứng và chăm chút phong cách theo cách rất riêng.</p>
+                <p class="hero-lead" data-i18n="heroLead">Lắng nghe trực giác, tìm cảm hứng phối đồ hoặc thử tài cầm quân trong hai thế giới chiến lược của Mèo cưng.</p>
                 <div class="hero-actions">
                     <a class="home-button home-button-primary" href="#products">
                         <span data-i18n="heroPrimary">Khám phá sản phẩm</span>
@@ -740,9 +778,9 @@
         <section class="products-section" id="products" aria-labelledby="products-title">
             <div class="home-shell">
                 <div class="section-heading">
-                    <p class="eyebrow" data-i18n="productsEyebrow">Hai trải nghiệm, một tinh thần</p>
-                    <h2 id="products-title" data-i18n="productsTitle">Chọn điều bạn cần cho hôm nay.</h2>
-                    <p data-i18n="productsLead">Mỗi sản phẩm có một thế giới riêng, nhưng đều được tạo ra để dễ dùng, gần gũi và có ích trong đời sống hằng ngày.</p>
+                    <p class="eyebrow" data-i18n="productsEyebrow">Ứng dụng và game</p>
+                    <h2 id="products-title" data-i18n="productsTitle">Hôm nay bạn muốn khám phá gì?</h2>
+                    <p data-i18n="productsLead">Từ một trải bài hay một bộ đồ mới đến bản đồ thế giới và chiến trường thời các triều đại.</p>
                 </div>
 
                 <div class="product-grid">
@@ -797,6 +835,57 @@
                             </div>
                         </div>
                     </article>
+                    <article class="product-card animal-product">
+                        <div class="product-topline">
+                            <div class="product-logo">Animal War</div>
+                            <span class="product-status" data-i18n="animalStatus">Chiến lược</span>
+                        </div>
+                        <div class="product-visual game-visual">
+                            <img src="assets/games/animal-war.jpg" alt="" width="800" height="800" loading="lazy" />
+                        </div>
+                        <div class="product-copy">
+                            <p class="product-kicker">World Conquest I</p>
+                            <h3 data-i18n="animalTitle">Dẫn dắt một phe. Định hình bản đồ.</h3>
+                            <p data-i18n="animalDescription">Chọn lãnh thổ, xây dựng quân đoàn động vật và mở rộng ảnh hưởng bằng ngoại giao hoặc chiến tranh.</p>
+                            <ul class="product-points">
+                                <li data-i18n="animalPointOne">Bản đồ thế giới và căn cứ</li>
+                                <li data-i18n="animalPointTwo">Quân đoàn động vật và khắc chế</li>
+                                <li data-i18n="animalPointThree">Liên minh, thương mại và chiến tranh</li>
+                            </ul>
+                            <div class="product-actions">
+                                <a class="home-button" href="animal-war.html">
+                                    <span data-i18n="animalCta">Khám phá Animal War</span>
+                                    <span aria-hidden="true">→</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="product-card dynasties-product">
+                        <div class="product-topline">
+                            <div class="product-logo">Age of Dynasties</div>
+                            <span class="product-status">RTS</span>
+                        </div>
+                        <div class="product-visual game-visual">
+                            <img src="assets/games/age-of-dynasties.jpg" alt="" width="800" height="800" loading="lazy" />
+                        </div>
+                        <div class="product-copy">
+                            <p class="product-kicker" data-i18n="dynastiesKicker">Chiến thuật thời gian thực</p>
+                            <h3 data-i18n="dynastiesTitle">Từ căn cứ nhỏ đến chiến trường.</h3>
+                            <p data-i18n="dynastiesDescription">Khai thác tài nguyên, xây công trình, tuyển quân và điều binh trên bản đồ có sương mù.</p>
+                            <ul class="product-points">
+                                <li data-i18n="dynastiesPointOne">Kinh tế, xây dựng và nghiên cứu</li>
+                                <li data-i18n="dynastiesPointTwo">Bộ binh, cung thủ, kỵ binh và khí giới</li>
+                                <li data-i18n="dynastiesPointThree">Thao trường và Đấu thường</li>
+                            </ul>
+                            <div class="product-actions">
+                                <a class="home-button" href="age-of-dynasties.html">
+                                    <span data-i18n="dynastiesCta">Khám phá Age of Dynasties</span>
+                                    <span aria-hidden="true">→</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
@@ -844,7 +933,7 @@
         const translations = {
             vi: {
                 pageTitle: "Mèo cưng | Những trải nghiệm nhỏ dành cho bạn",
-                pageDescription: "Mèo cưng — hai trải nghiệm nhỏ dành cho trực giác, phong cách và khoảng riêng của bạn.",
+                pageDescription: "Khám phá các ứng dụng và game của Mèo cưng: Bí ẩn Tarot, Mix & Match, Animal War và Age of Dynasties.",
                 skipLink: "Bỏ qua điều hướng",
                 navAria: "Điều hướng chính",
                 languageAria: "Chọn ngôn ngữ",
@@ -852,12 +941,12 @@
                 navTarot: "Bí ẩn Tarot",
                 heroEyebrow: "Mèo cưng studio",
                 heroTitle: "Những trải nghiệm nhỏ, dành cho khoảng riêng của bạn.",
-                heroLead: "Một nơi nhẹ nhàng để lắng nghe trực giác, tìm cảm hứng và chăm chút phong cách theo cách rất riêng.",
+                heroLead: "Lắng nghe trực giác, tìm cảm hứng phối đồ hoặc thử tài cầm quân trong hai thế giới chiến lược của Mèo cưng.",
                 heroPrimary: "Khám phá sản phẩm",
                 heroSecondary: "Trò chuyện với Mèo cưng",
-                productsEyebrow: "Hai trải nghiệm, một tinh thần",
-                productsTitle: "Chọn điều bạn cần cho hôm nay.",
-                productsLead: "Mỗi sản phẩm có một thế giới riêng, nhưng đều được tạo ra để dễ dùng, gần gũi và có ích trong đời sống hằng ngày.",
+                productsEyebrow: "Ứng dụng và game",
+                productsTitle: "Hôm nay bạn muốn khám phá gì?",
+                productsLead: "Từ một trải bài hay một bộ đồ mới đến bản đồ thế giới và chiến trường thời các triều đại.",
                 tarotStatus: "Trực giác",
                 tarotKicker: "Một khoảng lặng để soi chiếu",
                 tarotTitle: "Lắng nghe câu trả lời từ bên trong.",
@@ -875,6 +964,20 @@
                 mixPointTwo: "Studio phối đồ trực quan",
                 mixPointThree: "Thử outfit với AI",
                 mixCta: "Khám phá Mix & Match",
+                animalStatus: "Chiến lược",
+                animalTitle: "Dẫn dắt một phe. Định hình bản đồ.",
+                animalDescription: "Chọn lãnh thổ, xây dựng quân đoàn động vật và mở rộng ảnh hưởng bằng ngoại giao hoặc chiến tranh.",
+                animalPointOne: "Bản đồ thế giới và căn cứ",
+                animalPointTwo: "Quân đoàn động vật và khắc chế",
+                animalPointThree: "Liên minh, thương mại và chiến tranh",
+                animalCta: "Khám phá Animal War",
+                dynastiesKicker: "Chiến thuật thời gian thực",
+                dynastiesTitle: "Từ căn cứ nhỏ đến chiến trường.",
+                dynastiesDescription: "Khai thác tài nguyên, xây công trình, tuyển quân và điều binh trên bản đồ có sương mù.",
+                dynastiesPointOne: "Kinh tế, xây dựng và nghiên cứu",
+                dynastiesPointTwo: "Bộ binh, cung thủ, kỵ binh và khí giới",
+                dynastiesPointThree: "Thao trường và Đấu thường",
+                dynastiesCta: "Khám phá Age of Dynasties",
                 valuesEyebrow: "Tinh thần Mèo cưng",
                 valuesTitle: "Nhẹ nhàng trong cách dùng, chỉn chu trong từng chi tiết.",
                 valueOneTitle: "Cá nhân",
@@ -887,7 +990,7 @@
             },
             en: {
                 pageTitle: "Mèo cưng | Small experiences made for you",
-                pageDescription: "Mèo cưng — two thoughtful experiences for intuition, personal style, and a little space of your own.",
+                pageDescription: "Explore apps and games from Mèo cưng: Tarot Mysteries, Mix & Match, Animal War, and Age of Dynasties.",
                 skipLink: "Skip navigation",
                 navAria: "Primary navigation",
                 languageAria: "Choose language",
@@ -895,12 +998,12 @@
                 navTarot: "Tarot Mysteries",
                 heroEyebrow: "Mèo cưng studio",
                 heroTitle: "Small experiences, made for a space that feels like yours.",
-                heroLead: "A gentle place to listen to your intuition, find inspiration, and shape a personal style in your own way.",
+                heroLead: "Reflect with Tarot, find inspiration for your next outfit, or take command in two strategy worlds from Mèo cưng.",
                 heroPrimary: "Explore products",
                 heroSecondary: "Talk to Mèo cưng",
-                productsEyebrow: "Two experiences, one spirit",
-                productsTitle: "Choose what you need today.",
-                productsLead: "Each product has a world of its own, yet both are designed to feel useful, approachable, and easy to bring into everyday life.",
+                productsEyebrow: "Apps and games",
+                productsTitle: "What will you explore today?",
+                productsLead: "From a Tarot reading or a new outfit to a world map and the battlefields of past dynasties.",
                 tarotStatus: "Intuition",
                 tarotKicker: "A quiet space for reflection",
                 tarotTitle: "Listen for the answer within.",
@@ -918,6 +1021,20 @@
                 mixPointTwo: "An intuitive outfit studio",
                 mixPointThree: "AI-powered outfit try-on",
                 mixCta: "Explore Mix & Match",
+                animalStatus: "Strategy",
+                animalTitle: "Lead a faction. Reshape the map.",
+                animalDescription: "Choose a territory, raise animal armies, and expand your influence through diplomacy or war.",
+                animalPointOne: "World map and bases",
+                animalPointTwo: "Animal armies and counters",
+                animalPointThree: "Alliances, trade, and war",
+                animalCta: "Explore Animal War",
+                dynastiesKicker: "Real-time strategy",
+                dynastiesTitle: "From a small base to the battlefield.",
+                dynastiesDescription: "Gather resources, construct buildings, recruit troops, and command them across a map covered by fog of war.",
+                dynastiesPointOne: "Economy, construction, and research",
+                dynastiesPointTwo: "Infantry, archers, cavalry, and siege engines",
+                dynastiesPointThree: "Training Ground and Skirmish",
+                dynastiesCta: "Explore Age of Dynasties",
                 valuesEyebrow: "The Mèo cưng spirit",
                 valuesTitle: "Gentle to use, considered in every detail.",
                 valueOneTitle: "Personal",
