@@ -14,8 +14,8 @@
 }
 
 .game-page[data-game="age-of-dynasties"] {
-    --game-dark: #2d1c15;
-    --game-glow: #754f34;
+    --game-dark: #101e19;
+    --game-glow: #435a40;
     --game-accent-ink: #794a29;
 }
 
@@ -46,16 +46,41 @@
 }
 
 .game-hero {
-    background: radial-gradient(ellipse at 78% 28%, var(--game-glow), transparent 61%), var(--game-dark);
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: var(--game-dark);
     color: #fff7e7;
 }
 
+.game-hero-art {
+    position: absolute;
+    z-index: -2;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.game-hero::after {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(5, 15, 17, 0.88), rgba(5, 15, 17, 0.58) 40%, rgba(5, 15, 17, 0.03) 75%);
+    content: "";
+}
+
 .game-hero-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    display: flex;
+    min-height: 680px;
     align-items: center;
-    gap: clamp(32px, 7vw, 104px);
     padding-block: clamp(56px, 7vw, 96px);
+}
+
+.game-hero-copy {
+    width: 54%;
+    max-width: 640px;
 }
 
 .game-eyebrow {
@@ -82,7 +107,7 @@
 }
 
 .game-page h1 {
-    font-size: clamp(3.3rem, 7.8vw, 7.5rem);
+    font-size: clamp(3.3rem, 6.7vw, 6.5rem);
 }
 
 .game-page h1 span {
@@ -125,38 +150,84 @@
     background: #ffe1aa;
 }
 
+.game-button-secondary {
+    border: 1px solid rgba(255, 247, 231, 0.6);
+    background: rgba(5, 15, 17, 0.45);
+    color: #fff7e7;
+}
+
+.game-button-secondary:hover {
+    background: rgba(5, 15, 17, 0.8);
+}
+
 .game-status {
+    flex-basis: 100%;
     color: #e5d6bf;
     font-size: 0.79rem;
 }
 
-.game-cover {
-    width: min(100%, 480px);
-    margin: 0 auto;
-    padding: clamp(10px, 1.5vw, 18px);
-    border: 1px solid rgba(244, 207, 143, 0.42);
-    border-radius: 24px;
-    background: rgba(18, 13, 10, 0.27);
-    box-shadow: 0 20px 55px rgba(16, 11, 8, 0.28);
+.game-features,
+.game-gallery {
+    padding-block: clamp(56px, 8vw, 108px);
+    scroll-margin-top: 90px;
 }
 
-.game-cover img {
+.game-gallery {
+    border-bottom: 1px solid var(--game-line);
+}
+
+.game-gallery h2 {
+    margin-bottom: 16px;
+}
+
+.game-gallery-hint {
+    margin: 0 0 28px;
+    color: var(--game-muted);
+}
+
+.game-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 28px;
+}
+
+.game-shot {
+    margin: 0;
+    min-width: 0;
+}
+
+.game-shot-lead {
+    grid-column: 1 / -1;
+}
+
+.game-shot a {
+    display: block;
+    overflow: hidden;
+    border: 1px solid var(--game-line);
+    border-radius: 16px;
+    background: var(--game-dark);
+}
+
+.game-shot img {
     display: block;
     width: 100%;
     height: auto;
-    border-radius: 14px;
 }
 
-.game-cover figcaption {
-    padding-top: 10px;
-    color: #e5d6bf;
+.game-shot figcaption {
+    padding-top: 12px;
+    font-size: 0.88rem;
+    color: var(--game-muted);
+}
+
+.game-feature p.game-mode-status {
+    display: inline-block;
+    margin: 0 0 14px;
+    padding: 3px 9px;
+    border: 1px solid var(--game-line);
+    border-radius: 99px;
     font-size: 0.72rem;
-    text-align: center;
-}
-
-.game-features {
-    padding-block: clamp(56px, 8vw, 108px);
-    scroll-margin-top: 90px;
 }
 
 .game-page h2 {
@@ -169,6 +240,10 @@
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 16px;
+}
+
+.game-feature-grid-four {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .game-feature {
@@ -222,26 +297,52 @@
 }
 
 @media (max-width: 1024px) {
-    .game-features {
+    .game-features,
+    .game-gallery {
         scroll-margin-top: 148px;
     }
 }
 
 @media (max-width: 700px) {
-    .game-hero-grid,
-    .game-feature-grid {
+    .game-feature-grid,
+    .game-gallery-grid {
         grid-template-columns: 1fr;
     }
 
     .game-hero-grid {
-        padding-block: 42px;
+        min-height: 740px;
+        align-items: end;
+        padding-block: 290px 42px;
+    }
+
+    .game-hero-art {
+        height: 410px;
+        object-position: 75% center;
+    }
+
+    .game-hero::after {
+        background: linear-gradient(0deg, var(--game-dark) 42%, transparent 85%);
+    }
+
+    .game-hero-copy {
+        width: 100%;
     }
 
     .game-page h1 {
         font-size: clamp(2.9rem, 12vw, 5rem);
     }
 
-    .game-cover {
-        margin-left: 0;
-    }
+}
+
+/* Each feature is paired with its actual game interface. */
+.game-feature-list { display: grid; gap: 64px; scroll-margin-top: 110px; }
+.game-feature-list .game-feature { padding: 0; border: 0; border-radius: 0; background: none; }
+.game-feature-copy { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); gap: 40px; align-items: end; margin-bottom: 24px; }
+.game-feature-copy .game-feature-number { margin-bottom: 12px; }
+.game-feature-copy h3 { font-size: clamp(1.9rem, 3.3vw, 2.8rem); line-height: 1.08; }
+.game-feature-copy p { margin: 0; font-size: 1rem; }
+@media (max-width: 1024px) { .game-feature-list { scroll-margin-top: 148px; } }
+@media (max-width: 700px) {
+    .game-feature-list { gap: 44px; }
+    .game-feature-copy { grid-template-columns: 1fr; gap: 16px; }
 }

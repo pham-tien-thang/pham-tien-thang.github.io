@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Game chiến lược bản đồ thế giới. Dẫn dắt quân đoàn động vật, phát triển lãnh thổ và chọn giữa liên minh, thương mại hay chiến tranh." />
+    <meta name="description" content="Lãnh đạo một quốc gia động vật trong Animal War. Ngoại giao, kết liên minh, giao thương, tuyên chiến và đô hộ hoặc thống trị các lãnh thổ khác." />
     <title>Animal War: World Conquest I | Mèo cưng</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=Newsreader:wght@400;600&amp;display=swap" rel="stylesheet" />
     <link href="assets/site-shell.css" rel="stylesheet" />
-    <link href="assets/game-pages.css" rel="stylesheet" />
-    <script src="assets/game-pages.js" defer></script>
+    <link href="assets/game-pages.css?v=20261105-4features" rel="stylesheet" />
+    <script src="assets/game-pages.js?v=20261105-4features" defer></script>
 </head>
 
 <body class="game-page" data-game="animal-war">
@@ -41,45 +41,77 @@
 
     <main id="main-content">
         <section class="game-hero" aria-labelledby="game-title">
+            <img class="game-hero-art" src="assets/games/animal-war-map.webp" alt="" width="2048" height="1024" fetchpriority="high" />
             <div class="global-shell game-hero-grid">
                 <div class="game-hero-copy">
-                    <p class="game-eyebrow" data-i18n="heroEyebrow">Chiến lược chinh phục thế giới</p>
+                    <p class="game-eyebrow" data-i18n="heroEyebrow">Grand strategy · Chinh phục thế giới</p>
                     <h1 id="game-title">Animal War<span>World Conquest I</span></h1>
-                    <p class="game-lead" data-i18n="heroLead">Chọn một lãnh thổ trên bản đồ thế giới, xây dựng quân đoàn động vật và quyết định khi nào nên bắt tay, khi nào nên xuất quân.</p>
+                    <p class="game-lead" data-i18n="heroLead">Bạn sẽ lãnh đạo một quốc gia của các loài động vật, gây dựng thế lực và quyết định vận mệnh lãnh thổ. Kết đồng minh, mở giao thương hay tuyên chiến — mỗi lựa chọn đều có thể thay đổi bản đồ thế giới.</p>
                     <div class="game-actions">
                         <a class="game-button" href="#gameplay">
                             <span data-i18n="heroAction">Khám phá lối chơi</span>
                             <span aria-hidden="true">↓</span>
                         </a>
+                        <a class="game-button game-button-secondary" href="#screenshots" data-i18n="galleryAction">Xem hình ảnh</a>
                         <span class="game-status" data-i18n="heroStatus">Dự án đang phát triển</span>
                     </div>
                 </div>
 
-                <figure class="game-cover">
-                    <img src="assets/games/animal-war.jpg" alt="Sư tử, đại bàng, cá sấu và gấu bao quanh quả địa cầu có cờ các phe" data-i18n-alt="heroAlt" width="800" height="800" fetchpriority="high" />
-                    <figcaption data-i18n="artCaption">Tranh minh họa của game</figcaption>
-                </figure>
             </div>
         </section>
 
         <section class="global-shell game-features" id="gameplay" aria-labelledby="gameplay-title">
             <p class="game-eyebrow" data-i18n="gameplayEyebrow">Lối chơi</p>
-            <h2 id="gameplay-title" data-i18n="gameplayTitle">Lãnh thổ của bạn, chiến lược của bạn.</h2>
-            <div class="game-feature-grid">
+            <h2 id="gameplay-title" data-i18n="gameplayTitle">Cầm quyền một quốc gia. Viết lại trật tự thế giới.</h2>
+            <p class="game-gallery-hint" data-i18n="galleryHint">Chọn ảnh để xem kích thước lớn.</p>
+            <div class="game-feature-list" id="screenshots">
                 <article class="game-feature">
-                    <span class="game-feature-number" aria-hidden="true">01</span>
-                    <h3 data-i18n="featureOneTitle">Xây dựng thế lực</h3>
-                    <p data-i18n="featureOneLead">Đầu tư vào kinh tế, sinh trưởng và nghiên cứu để nuôi quân và củng cố căn cứ. Mỗi vùng đất mở ra những lựa chọn phát triển khác nhau.</p>
+                    <div class="game-feature-copy">
+                        <div><span class="game-feature-number" aria-hidden="true">01</span><h3 data-i18n="featureOneTitle">Lãnh đạo và phát triển quốc gia</h3></div>
+                        <p data-i18n="featureOneLead">Nắm quyền điều hành một quốc gia động vật. Theo dõi ngân sách, cân đối nguồn thu và chi phí để xây dựng nền kinh tế, phát triển công nghệ và nuôi dưỡng sức mạnh quân sự.</p>
+                    </div>
+                    <figure class="game-shot">
+                        <a href="assets/games/screenshots/animal-war-budget.jpg" target="_blank" rel="noopener">
+                            <img src="assets/games/screenshots/animal-war-budget.jpg" alt="Ngân sách quốc gia: kho bạc, thu nhập và chi phí." data-i18n-alt="featureOneAlt" width="1440" height="810" loading="lazy" decoding="async" />
+                        </a>
+                        <figcaption data-i18n="featureOneCaption">Ngân sách quốc gia: kho bạc, thu nhập và chi phí.</figcaption>
+                    </figure>
                 </article>
                 <article class="game-feature">
-                    <span class="game-feature-number" aria-hidden="true">02</span>
-                    <h3 data-i18n="featureTwoTitle">Chỉ huy quân đoàn động vật</h3>
-                    <p data-i18n="featureTwoLead">Tuyển các loài vào tuyến trước và tuyến sau. Cân nhắc lớp quân, nguyên tố và khắc chế trước khi hành quân hoặc giữ đất.</p>
+                    <div class="game-feature-copy">
+                        <div><span class="game-feature-number" aria-hidden="true">02</span><h3 data-i18n="featureTwoTitle">Ngoại giao và kết liên minh</h3></div>
+                        <p data-i18n="featureTwoLead">Gây dựng quan hệ với các lãnh thổ xung quanh, tìm đồng minh và thương lượng để cùng bảo vệ lợi ích. Một quyết định ngoại giao đúng lúc có thể thay đổi cả cán cân quyền lực.</p>
+                    </div>
+                    <figure class="game-shot">
+                        <a href="assets/games/screenshots/animal-war-alliance.jpg" target="_blank" rel="noopener">
+                            <img src="assets/games/screenshots/animal-war-alliance.jpg" alt="Ngoại giao với lãnh thổ láng giềng và đề nghị liên minh." data-i18n-alt="featureTwoAlt" width="1440" height="810" loading="lazy" decoding="async" />
+                        </a>
+                        <figcaption data-i18n="featureTwoCaption">Ngoại giao với lãnh thổ láng giềng và đề nghị liên minh.</figcaption>
+                    </figure>
                 </article>
                 <article class="game-feature">
-                    <span class="game-feature-number" aria-hidden="true">03</span>
-                    <h3 data-i18n="featureThreeTitle">Chọn bạn và chọn trận</h3>
-                    <p data-i18n="featureThreeLead">Mở giao thương, tìm đồng minh hoặc tuyên chiến. Khi giành thắng lợi, quyết định cách kiểm soát vùng đất mới.</p>
+                    <div class="game-feature-copy">
+                        <div><span class="game-feature-number" aria-hidden="true">03</span><h3 data-i18n="featureThreeTitle">Giao thương với các láng giềng</h3></div>
+                        <p data-i18n="featureThreeLead">Mở đường giao thương để trao đổi nguồn lực với các quốc gia xung quanh. Chọn hàng hóa, cân nhắc giá cả và tận dụng nguồn cung để chuẩn bị cho những kế hoạch lớn hơn.</p>
+                    </div>
+                    <figure class="game-shot">
+                        <a href="assets/games/screenshots/animal-war-trade.jpg" target="_blank" rel="noopener">
+                            <img src="assets/games/screenshots/animal-war-trade.jpg" alt="Popup Giao thương: lựa chọn hàng hóa và giao dịch giữa hai lãnh thổ." data-i18n-alt="featureThreeAlt" width="1440" height="810" loading="lazy" decoding="async" />
+                        </a>
+                        <figcaption data-i18n="featureThreeCaption">Popup Giao thương: lựa chọn hàng hóa và giao dịch giữa hai lãnh thổ.</figcaption>
+                    </figure>
+                </article>
+                <article class="game-feature">
+                    <div class="game-feature-copy">
+                        <div><span class="game-feature-number" aria-hidden="true">04</span><h3 data-i18n="featureFourTitle">Tuyên chiến và mở rộng quyền lực</h3></div>
+                        <p data-i18n="featureFourLead">Khi đàm phán không còn là lựa chọn, tuyên chiến và đưa quân vượt biên giới. Giành thắng lợi để đô hộ, sáp nhập và từng bước thống trị các lãnh thổ khác.</p>
+                    </div>
+                    <figure class="game-shot">
+                        <a href="assets/games/screenshots/animal-war-war.jpg" target="_blank" rel="noopener">
+                            <img src="assets/games/screenshots/animal-war-war.jpg" alt="Popup Tuyên chiến: xem điều kiện trước khi phát động chiến tranh." data-i18n-alt="featureFourAlt" width="1440" height="810" loading="lazy" decoding="async" />
+                        </a>
+                        <figcaption data-i18n="featureFourCaption">Popup Tuyên chiến: xem điều kiện trước khi phát động chiến tranh.</figcaption>
+                    </figure>
                 </article>
             </div>
         </section>

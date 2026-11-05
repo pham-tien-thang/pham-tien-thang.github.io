@@ -446,26 +446,16 @@
         }
 
         .game-visual {
-            display: grid;
-            place-items: center;
-            padding: 16px;
-            background: radial-gradient(ellipse, var(--cover-glow), rgba(12, 10, 8, 0.3) 78%);
-        }
-
-        .animal-product .game-visual {
-            --cover-glow: #507265;
-        }
-
-        .dynasties-product .game-visual {
-            --cover-glow: #896044;
+            background: #132c28;
+            min-height: 0;
+            aspect-ratio: 16 / 9;
         }
 
         .game-visual img {
             display: block;
-            width: min(100%, 252px);
-            height: auto;
-            border-radius: 14px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .product-copy {
@@ -689,6 +679,10 @@
                 min-height: 240px;
             }
 
+            .game-visual {
+                min-height: 0;
+            }
+
             .value-grid {
                 grid-template-columns: 1fr;
             }
@@ -841,16 +835,16 @@
                             <span class="product-status" data-i18n="animalStatus">Chiến lược</span>
                         </div>
                         <div class="product-visual game-visual">
-                            <img src="assets/games/animal-war.jpg" alt="" width="800" height="800" loading="lazy" />
+                            <img src="assets/games/animal-war-hero.jpg" alt="" width="1672" height="941" loading="lazy" />
                         </div>
                         <div class="product-copy">
                             <p class="product-kicker">World Conquest I</p>
                             <h3 data-i18n="animalTitle">Dẫn dắt một phe. Định hình bản đồ.</h3>
-                            <p data-i18n="animalDescription">Chọn lãnh thổ, xây dựng quân đoàn động vật và mở rộng ảnh hưởng bằng ngoại giao hoặc chiến tranh.</p>
+                            <p data-i18n="animalDescription">Lãnh đạo một quốc gia động vật, ngoại giao với láng giềng, kết liên minh và giao thương. Tuyên chiến để đô hộ hoặc thống trị các lãnh thổ khác.</p>
                             <ul class="product-points">
-                                <li data-i18n="animalPointOne">Bản đồ thế giới và căn cứ</li>
-                                <li data-i18n="animalPointTwo">Quân đoàn động vật và khắc chế</li>
-                                <li data-i18n="animalPointThree">Liên minh, thương mại và chiến tranh</li>
+                                <li data-i18n="animalPointOne">Lãnh đạo quốc gia và xây dựng quân đoàn</li>
+                                <li data-i18n="animalPointTwo">Ngoại giao, liên minh và giao thương</li>
+                                <li data-i18n="animalPointThree">Tuyên chiến, đô hộ và thống trị lãnh thổ</li>
                             </ul>
                             <div class="product-actions">
                                 <a class="home-button" href="animal-war.html">
@@ -867,16 +861,16 @@
                             <span class="product-status">RTS</span>
                         </div>
                         <div class="product-visual game-visual">
-                            <img src="assets/games/age-of-dynasties.jpg" alt="" width="800" height="800" loading="lazy" />
+                            <img src="assets/games/age-of-dynasties-hero.jpg" alt="" width="1672" height="941" loading="lazy" />
                         </div>
                         <div class="product-copy">
                             <p class="product-kicker" data-i18n="dynastiesKicker">Chiến thuật thời gian thực</p>
                             <h3 data-i18n="dynastiesTitle">Từ căn cứ nhỏ đến chiến trường.</h3>
-                            <p data-i18n="dynastiesDescription">Khai thác tài nguyên, xây công trình, tuyển quân và điều binh trên bản đồ có sương mù.</p>
+                            <p data-i18n="dynastiesDescription">Dẫn quân tranh tài với nhiều đối thủ, luyện đội hình trong Thao trường và khám phá hướng phát triển Thủ thành, Công thành.</p>
                             <ul class="product-points">
-                                <li data-i18n="dynastiesPointOne">Kinh tế, xây dựng và nghiên cứu</li>
-                                <li data-i18n="dynastiesPointTwo">Bộ binh, cung thủ, kỵ binh và khí giới</li>
-                                <li data-i18n="dynastiesPointThree">Thao trường và Đấu thường</li>
+                                <li data-i18n="dynastiesPointOne">Đấu thường với nhiều phe đối địch</li>
+                                <li data-i18n="dynastiesPointTwo">Thao trường luyện quân và chiến thuật</li>
+                                <li data-i18n="dynastiesPointThree">Thủ thành &amp; Công thành · Đang phát triển</li>
                             </ul>
                             <div class="product-actions">
                                 <a class="home-button" href="age-of-dynasties.html">
@@ -966,17 +960,17 @@
                 mixCta: "Khám phá Mix & Match",
                 animalStatus: "Chiến lược",
                 animalTitle: "Dẫn dắt một phe. Định hình bản đồ.",
-                animalDescription: "Chọn lãnh thổ, xây dựng quân đoàn động vật và mở rộng ảnh hưởng bằng ngoại giao hoặc chiến tranh.",
-                animalPointOne: "Bản đồ thế giới và căn cứ",
-                animalPointTwo: "Quân đoàn động vật và khắc chế",
-                animalPointThree: "Liên minh, thương mại và chiến tranh",
+                animalDescription: "Lãnh đạo một quốc gia động vật, ngoại giao với láng giềng, kết liên minh và giao thương. Tuyên chiến để đô hộ hoặc thống trị các lãnh thổ khác.",
+                animalPointOne: "Lãnh đạo quốc gia và xây dựng quân đoàn",
+                animalPointTwo: "Ngoại giao, liên minh và giao thương",
+                animalPointThree: "Tuyên chiến, đô hộ và thống trị lãnh thổ",
                 animalCta: "Khám phá Animal War",
                 dynastiesKicker: "Chiến thuật thời gian thực",
                 dynastiesTitle: "Từ căn cứ nhỏ đến chiến trường.",
-                dynastiesDescription: "Khai thác tài nguyên, xây công trình, tuyển quân và điều binh trên bản đồ có sương mù.",
-                dynastiesPointOne: "Kinh tế, xây dựng và nghiên cứu",
-                dynastiesPointTwo: "Bộ binh, cung thủ, kỵ binh và khí giới",
-                dynastiesPointThree: "Thao trường và Đấu thường",
+                dynastiesDescription: "Dẫn quân tranh tài với nhiều đối thủ, luyện đội hình trong Thao trường và khám phá hướng phát triển Thủ thành, Công thành.",
+                dynastiesPointOne: "Đấu thường với nhiều phe đối địch",
+                dynastiesPointTwo: "Thao trường luyện quân và chiến thuật",
+                dynastiesPointThree: "Thủ thành & Công thành · Đang phát triển",
                 dynastiesCta: "Khám phá Age of Dynasties",
                 valuesEyebrow: "Tinh thần Mèo cưng",
                 valuesTitle: "Nhẹ nhàng trong cách dùng, chỉn chu trong từng chi tiết.",
@@ -1023,17 +1017,17 @@
                 mixCta: "Explore Mix & Match",
                 animalStatus: "Strategy",
                 animalTitle: "Lead a faction. Reshape the map.",
-                animalDescription: "Choose a territory, raise animal armies, and expand your influence through diplomacy or war.",
-                animalPointOne: "World map and bases",
-                animalPointTwo: "Animal armies and counters",
-                animalPointThree: "Alliances, trade, and war",
+                animalDescription: "Lead an animal nation, shape diplomacy, forge alliances, and trade with your neighbors. Declare war to subjugate or conquer rival territories.",
+                animalPointOne: "Lead your nation and raise armies",
+                animalPointTwo: "Diplomacy, alliances, and trade",
+                animalPointThree: "War, subjugation, and conquest",
                 animalCta: "Explore Animal War",
                 dynastiesKicker: "Real-time strategy",
                 dynastiesTitle: "From a small base to the battlefield.",
-                dynastiesDescription: "Gather resources, construct buildings, recruit troops, and command them across a map covered by fog of war.",
-                dynastiesPointOne: "Economy, construction, and research",
-                dynastiesPointTwo: "Infantry, archers, cavalry, and siege engines",
-                dynastiesPointThree: "Training Ground and Skirmish",
+                dynastiesDescription: "Command your army against rival factions, practice in the Training Ground, and discover the upcoming Tower Defense and Siege modes.",
+                dynastiesPointOne: "Skirmishes against rival factions",
+                dynastiesPointTwo: "Practice formations and tactics",
+                dynastiesPointThree: "Tower Defense & Siege · In development",
                 dynastiesCta: "Explore Age of Dynasties",
                 valuesEyebrow: "The Mèo cưng spirit",
                 valuesTitle: "Gentle to use, considered in every detail.",
