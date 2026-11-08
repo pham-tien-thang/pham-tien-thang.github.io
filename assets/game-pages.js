@@ -1,4 +1,9 @@
 (() => {
+    const animalWarStoreUrls = {
+        googlePlay: "https://play.google.com/store/apps/details?id=com.mclabs.animal_war",
+        appStore: null, // Set to https://apps.apple.com/app/id<Apple App ID> when available.
+    };
+
     const commonCopy = {
     "vi": {
         "skipLink": "Bỏ qua điều hướng",
@@ -37,6 +42,9 @@
     const gameCopy = {
     "animal-war": {
         "vi": {
+            "googlePlayDownload": "Tải trên Google Play",
+            "appStoreDownload": "Tải trên App Store",
+            "appStorePending": "App Store · Chưa có bản tải",
             "pageTitle": "Animal War: World Conquest I | Mèo cưng",
             "pageDescription": "Lãnh đạo một quốc gia động vật trong Animal War. Ngoại giao, kết liên minh, giao thương, tuyên chiến và đô hộ hoặc thống trị các lãnh thổ khác.",
             "heroEyebrow": "Grand strategy · Chinh phục thế giới",
@@ -62,6 +70,9 @@
             "featureFourAlt": "Popup Tuyên chiến: xem điều kiện trước khi phát động chiến tranh."
         },
         "en": {
+            "googlePlayDownload": "Get it on Google Play",
+            "appStoreDownload": "Download on the App Store",
+            "appStorePending": "App Store · Not available yet",
             "pageTitle": "Animal War: World Conquest I | Mèo cưng",
             "pageDescription": "Lead an animal nation in Animal War. Shape diplomacy, forge alliances, trade with neighbors, declare war, and subjugate or conquer rival territories.",
             "heroEyebrow": "Grand strategy · World conquest",
@@ -141,6 +152,17 @@
 
     const game = gameCopy[document.body.dataset.game];
     const languageButtons = document.querySelectorAll("[data-lang]");
+
+    document.querySelectorAll("[data-store-link]").forEach((link) => {
+        const store = link.dataset.storeLink;
+        const url = animalWarStoreUrls[store];
+        if (!url) return;
+
+        link.href = url;
+        link.removeAttribute("role");
+        link.removeAttribute("aria-disabled");
+        link.querySelector("[data-i18n]").dataset.i18n = store + "Download";
+    });
 
     function setLanguage(language) {
         const selected = language === "en" ? "en" : "vi";

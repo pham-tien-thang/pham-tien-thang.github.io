@@ -132,6 +132,16 @@
     gap: 14px 18px;
 }
 
+.game-store-actions {
+    margin-bottom: 14px;
+}
+
+.game-store-actions svg {
+    width: 20px;
+    height: 20px;
+    flex: 0 0 auto;
+}
+
 .game-button {
     display: inline-flex;
     align-items: center;
@@ -158,6 +168,12 @@
 
 .game-button-secondary:hover {
     background: rgba(5, 15, 17, 0.8);
+}
+
+.game-store-actions [aria-disabled="true"] {
+    border-color: rgba(255, 247, 231, 0.35);
+    background: rgba(5, 15, 17, 0.45);
+    color: #e5d6bf;
 }
 
 .game-status {
