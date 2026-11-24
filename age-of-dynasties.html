@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Age of Dynasties — chiến thuật thời gian thực với Đấu thường và Thao trường. Khám phá các chế độ Thủ thành và Công thành đang phát triển." />
+    <meta name="description" content="Age of Dynasties — xây dựng căn cứ, chỉ huy quân đội và làm chủ chiến trường trong Thủ thành, Công thành, Đấu thường và Thử thách." />
     <title>Age of Dynasties | Mèo cưng</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=Newsreader:wght@400;600&amp;display=swap" rel="stylesheet" />
     <link href="assets/site-shell.css" rel="stylesheet" />
-    <link href="assets/game-pages.css?v=20261105-4features" rel="stylesheet" />
-    <script src="assets/game-pages.js?v=20261123-privacy" defer></script>
+    <link href="assets/game-pages.css?v=20261124-modes" rel="stylesheet" />
+    <script src="assets/game-pages.js?v=20261124-hud" defer></script>
 </head>
 
 <body class="game-page" data-game="age-of-dynasties">
@@ -46,7 +46,7 @@
                 <div class="game-hero-copy">
                     <p class="game-eyebrow" data-i18n="heroEyebrow">Chiến thuật thời gian thực</p>
                     <h1 id="game-title">Age of Dynasties</h1>
-                    <p class="game-lead" data-i18n="heroLead">Dẫn quân vào những trận đánh với nhiều đối thủ, xây dựng căn cứ và tìm thời cơ xoay chuyển chiến trường. Từ những buổi luyện quân đến khát vọng chinh phục thành trì, mỗi đội hình là một cách viết nên chiến thắng.</p>
+                    <p class="game-lead" data-i18n="heroLead">Xây dựng căn cứ, phối hợp bộ binh, cung thủ, kỵ binh và khí giới công thành. Giữ vững phòng tuyến, dẫn quân chinh phục thành trì hoặc vượt qua những thử thách riêng biệt — mỗi chiến trường đòi hỏi một cách cầm quân.</p>
                     <div class="game-actions">
                         <a class="game-button" href="#gameplay">
                             <span data-i18n="heroAction">Khám phá lối chơi</span>
@@ -63,54 +63,66 @@
         <section class="global-shell game-features" id="gameplay" aria-labelledby="gameplay-title">
             <p class="game-eyebrow" data-i18n="gameplayEyebrow">Lối chơi</p>
             <h2 id="gameplay-title" data-i18n="gameplayTitle">Chọn chiến trường. Làm chủ cuộc chiến.</h2>
-            <p class="game-gallery-hint" data-i18n="galleryHint">Chọn ảnh để xem kích thước lớn.</p>
+            <p class="game-gallery-hint" data-i18n="galleryHint">Chọn ảnh để xem kích thước lớn. Các cảnh trong game được dàn dựng để giới thiệu lối chơi.</p>
             <div class="game-feature-list" id="screenshots">
                 <article class="game-feature">
                     <div class="game-feature-copy">
                         <div><span class="game-feature-number" aria-hidden="true">01</span><h3 data-i18n="featureOneTitle">Chọn chiến trường của bạn</h3></div>
-                        <p data-i18n="featureOneLead">Đấu thường đưa bạn vào những trận đánh với nhiều đối thủ. Giữ vững thành trì trước các đợt tiến công trong Thủ thành, hoặc dẫn quân phá tuyến và chinh phục thành trì đối phương trong Công thành. Hai chế độ Thủ thành và Công thành đang được phát triển.</p>
+                        <p data-i18n="featureOneLead">Giữ thành trước các đợt tiến công, dẫn quân công phá phòng tuyến, xây dựng đế chế trong Đấu thường hoặc vượt qua từng màn Thử thách. Thao trường luôn sẵn sàng để bạn luyện điều binh và thử đội hình mới.</p>
                     </div>
                     <figure class="game-shot">
-                        <a href="assets/games/screenshots/dynasties-menu.jpg" target="_blank" rel="noopener">
-                            <img src="assets/games/screenshots/dynasties-menu.jpg" alt="Menu mới: Đấu thường, Thủ thành, Công thành và Thao trường." data-i18n-alt="featureOneAlt" width="1600" height="900" loading="lazy" decoding="async" />
+                        <a href="assets/games/screenshots/dynasties-menu-20261124.webp" target="_blank" rel="noopener">
+                            <img src="assets/games/screenshots/dynasties-menu-20261124.webp" alt="Menu Age of Dynasties hiện tại với năm lựa chọn chế độ chơi, không hiển thị cửa hàng." data-i18n-alt="featureOneAlt" width="1600" height="900" loading="lazy" decoding="async" />
                         </a>
-                        <figcaption data-i18n="featureOneCaption">Menu mới: Đấu thường, Thủ thành, Công thành và Thao trường.</figcaption>
+                        <figcaption data-i18n="featureOneCaption">Menu hiện tại với Đấu thường, Thủ thành, Công thành, Thử thách và Thao trường.</figcaption>
                     </figure>
                 </article>
                 <article class="game-feature">
                     <div class="game-feature-copy">
-                        <div><span class="game-feature-number" aria-hidden="true">02</span><h3 data-i18n="featureTwoTitle">Chiêu mộ quân đội</h3></div>
-                        <p data-i18n="featureTwoLead">Xây dựng lực lượng từ bộ binh, cung thủ và kỵ binh đến khí giới công thành. Cân đối tài nguyên, theo dõi hàng chờ tuyển quân và phối hợp các loại quân để tạo nên đội hình của riêng bạn.</p>
+                        <div><span class="game-feature-number" aria-hidden="true">02</span><h3 data-i18n="featureTwoTitle">Thủ thành</h3></div>
+                        <p data-i18n="featureTwoLead">Bố trí cung thủ sau chiến tuyến, đưa bộ binh giữ cổng và xây thêm công trình hỗ trợ. Phối hợp quân đội, tháp canh và kỹ năng để bảo vệ căn cứ trước những đợt tiến công ngày càng mạnh.</p>
                     </div>
                     <figure class="game-shot">
-                        <a href="assets/games/screenshots/dynasties-army.jpg" target="_blank" rel="noopener">
-                            <img src="assets/games/screenshots/dynasties-army.jpg" alt="Giao diện tuyển quân với từng loại lính, chi phí và thời gian huấn luyện." data-i18n-alt="featureTwoAlt" width="1280" height="720" loading="lazy" decoding="async" />
+                        <a href="assets/games/screenshots/dynasties-defense-20261124-hud.webp" target="_blank" rel="noopener">
+                            <img src="assets/games/screenshots/dynasties-defense-20261124-hud.webp" alt="Toàn màn Thủ thành với minimap, tài nguyên, trạng thái đợt 4 và bốn kỹ năng; các cụm quân giao chiến ở cổng, có quân ngã và tên cắm đất." data-i18n-alt="featureTwoAlt" width="1600" height="900" loading="lazy" decoding="async" />
                         </a>
-                        <figcaption data-i18n="featureTwoCaption">Giao diện tuyển quân với từng loại lính, chi phí và thời gian huấn luyện.</figcaption>
+                        <figcaption data-i18n="featureTwoCaption">Toàn màn Thủ thành: giao tranh ở cổng, minimap, tài nguyên, trạng thái đợt tiến công và bốn kỹ năng.</figcaption>
                     </figure>
                 </article>
                 <article class="game-feature">
                     <div class="game-feature-copy">
-                        <div><span class="game-feature-number" aria-hidden="true">03</span><h3 data-i18n="featureThreeTitle">Điều binh trên bản đồ</h3></div>
-                        <p data-i18n="featureThreeLead">Chọn quân ngay trên chiến trường để mở thanh lệnh phía dưới. Điều động lực lượng, tổ chức tiến công hoặc giữ vị trí; mỗi mệnh lệnh đều giúp bạn giành thế chủ động trong trận đánh.</p>
+                        <div><span class="game-feature-number" aria-hidden="true">03</span><h3 data-i18n="featureThreeTitle">Công thành</h3></div>
+                        <p data-i18n="featureThreeLead">Dẫn quân áp sát thành trì, dùng cẩu đá và xe nỏ yểm trợ lực lượng xung kích. Phối hợp các mũi tiến công, phá phòng tuyến và tiến sâu vào căn cứ đối phương.</p>
                     </div>
                     <figure class="game-shot">
-                        <a href="assets/games/screenshots/dynasties-battlefield.jpg" target="_blank" rel="noopener">
-                            <img src="assets/games/screenshots/dynasties-battlefield.jpg" alt="Quân đã được chọn, hiển thị vòng chọn và thanh hành động phía dưới." data-i18n-alt="featureThreeAlt" width="1280" height="720" loading="lazy" decoding="async" />
+                        <a href="assets/games/screenshots/dynasties-siege-20261124-hud.webp" target="_blank" rel="noopener">
+                            <img src="assets/games/screenshots/dynasties-siege-20261124-hud.webp" alt="Toàn màn Công thành với minimap, tài nguyên, thanh thời gian và cụm kỹ năng; bộ binh đánh qua đoạn tường vỡ dưới sự yểm trợ của khí giới." data-i18n-alt="featureThreeAlt" width="1600" height="900" loading="lazy" decoding="async" />
                         </a>
-                        <figcaption data-i18n="featureThreeCaption">Quân đã được chọn, hiển thị vòng chọn và thanh hành động phía dưới.</figcaption>
+                        <figcaption data-i18n="featureThreeCaption">Toàn màn Công thành: cẩu đá yểm trợ giao tranh, kèm minimap, thanh trạng thái và kỹ năng.</figcaption>
                     </figure>
                 </article>
                 <article class="game-feature">
                     <div class="game-feature-copy">
-                        <div><span class="game-feature-number" aria-hidden="true">04</span><h3 data-i18n="featureFourTitle">Thao trường · Rèn tài cầm quân</h3></div>
-                        <p data-i18n="featureFourLead">Tự do luyện tập trước khi bước vào trận chiến. Làm quen với từng loại quân, thử các cách bố trí lực lượng và rèn thao tác điều khiển trong khu vực huấn luyện.</p>
+                        <div><span class="game-feature-number" aria-hidden="true">04</span><h3 data-i18n="featureFourTitle">Đấu thường</h3></div>
+                        <p data-i18n="featureFourLead">Chọn từ hai đến bốn nền văn minh, chia đội và đối đầu với bot ở ba mức khó. Thu gom tài nguyên, xây dựng căn cứ, tuyển quân và nâng cấp để tạo lợi thế trước khi đưa quân quyết chiến.</p>
                     </div>
                     <figure class="game-shot">
-                        <a href="assets/games/screenshots/dynasties-training.jpg" target="_blank" rel="noopener">
-                            <img src="assets/games/screenshots/dynasties-training.jpg" alt="Bản đồ Thao trường với quân đội, mục tiêu tập luyện và căn cứ." data-i18n-alt="featureFourAlt" width="1280" height="720" loading="lazy" decoding="async" />
+                        <a href="assets/games/screenshots/dynasties-skirmish-20261124-hud.webp" target="_blank" rel="noopener">
+                            <img src="assets/games/screenshots/dynasties-skirmish-20261124-hud.webp" alt="Toàn màn Đấu thường với minimap, thanh tài nguyên và thời gian; ba kỵ binh được chọn có vòng chọn xanh, thanh lệnh hiện phía dưới giữa cảnh xây dựng và giao tranh." data-i18n-alt="featureFourAlt" width="1600" height="900" loading="lazy" decoding="async" />
                         </a>
-                        <figcaption data-i18n="featureFourCaption">Bản đồ Thao trường với quân đội, mục tiêu tập luyện và căn cứ.</figcaption>
+                        <figcaption data-i18n="featureFourCaption">Đấu thường: căn cứ đang phát triển, nhóm kỵ binh được chọn và thanh lệnh điều khiển phía dưới.</figcaption>
+                    </figure>
+                </article>
+                <article class="game-feature">
+                    <div class="game-feature-copy">
+                        <div><span class="game-feature-number" aria-hidden="true">05</span><h3 data-i18n="featureFiveTitle">Thử thách</h3></div>
+                        <p data-i18n="featureFiveLead">Mỗi màn đặt ra một nhiệm vụ và tình thế riêng, buộc bạn tận dụng lực lượng đang có. Từ né đòn, vượt trận địa đến tìm đường về căn cứ, hãy tính thời điểm di chuyển và hoàn thành từng mục tiêu để mở màn tiếp theo.</p>
+                    </div>
+                    <figure class="game-shot">
+                        <a href="assets/games/screenshots/dynasties-challenge-20261124-hud.webp" target="_blank" rel="noopener">
+                            <img src="assets/games/screenshots/dynasties-challenge-20261124-hud.webp" alt="Toàn màn Thử thách 3 So tài với minimap, thanh trạng thái và hai kỹ năng; hai cẩu đá đối đầu, đạn đá đang bay và khán giả quanh đấu trường." data-i18n-alt="featureFiveAlt" width="1600" height="900" loading="lazy" decoding="async" />
+                        </a>
+                        <figcaption data-i18n="featureFiveCaption">Màn 3 · So tài: hai cẩu đá đối đầu, vừa né đạn vừa tìm thời cơ phản công giữa đấu trường.</figcaption>
                     </figure>
                 </article>
             </div>

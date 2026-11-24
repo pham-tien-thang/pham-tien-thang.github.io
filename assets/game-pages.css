@@ -362,3 +362,20 @@
     .game-feature-list { gap: 44px; }
     .game-feature-copy { grid-template-columns: 1fr; gap: 16px; }
 }
+
+/* Keep mode titles on one line without squeezing the screenshots. */
+.game-page[data-game="age-of-dynasties"] .game-feature-copy h3 {
+    white-space: nowrap;
+    font-size: min(2.8rem, 2.45vw);
+}
+@media (max-width: 700px) {
+    .game-page[data-game="age-of-dynasties"] h1 {
+        font-size: min(5rem, 12vw);
+    }
+    .game-page[data-game="age-of-dynasties"] h2 {
+        font-size: min(4.7rem, 11vw);
+    }
+    .game-page[data-game="age-of-dynasties"] .game-feature-copy h3 {
+        font-size: min(2rem, 5.5vw);
+    }
+}
